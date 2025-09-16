@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Visualizer Music Player</title>
+  <link rel="stylesheet" href="icon/all.min.css" />
+  <!-- <link rel="stylesheet" href="css/all.min.css" /> -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="rotating-bg"></div>
+  <canvas id="visualizer"></canvas>
+
+  <div class="container">
+    <div class="player">
+      <input type="file" id="fileUpload" accept="audio/*" webkitdirectory multiple />
+
+      <div class="details">
+        <div class="now-playing">No track loaded</div>
+        <div class="track-art">
+          <canvas id="spectrum" width="250" height="250"></canvas>
+        </div>
+        <div class="track-name">Track Name</div>
+        <div class="track-artist">Visualizer</div>
+      </div>
+
+      <div class="buttons">
+        <div onclick="prevTrack()"><i class="fa fa-step-backward fa-2x"></i></div>
+        <div onclick="rewind10()"><i class="fa fa-undo fa-2x"></i></div>
+        <div onclick="playpauseTrack()" class="playpause-track"><i class="fa fa-play-circle fa-5x"></i></div>
+        <div onclick="forward10()"><i class="fa fa-redo fa-2x"></i></div>
+        <div onclick="nextTrack()"><i class="fa fa-step-forward fa-2x"></i></div>
+      </div>
+
+      <div class="slider_container">
+        <div class="current-time">00:00</div>
+        <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+        <div class="total-duration">00:00</div>
+      </div>
+
+      <div class="slider_container">
+        <i class="fa fa-volume-down"></i>
+        <input type="range" min="0" max="100" value="99" class="volume_slider" onchange="setVolume()">
+        <i class="fa fa-volume-up"></i>
+      </div>
+
+      <!-- Preset and EQ -->
+      <div style="margin-top: 15px;">
+        <label>Visualizer Preset:</label>
+        <select id="preset" onchange="changePreset()">
+          <option value="bars">Bars</option>
+          <option value="radial">Radial</option>
+          <option value="wave">Wave</option>
+        </select>
+      </div>
+      <div style="margin-top: 15px;">
+        <label>Bass</label>
+        <input type="range" id="bass" min="-30" max="30" value="0" onchange="setEQ()">
+        <label>Mid</label>
+        <input type="range" id="mid" min="-30" max="30" value="0" onchange="setEQ()">
+        <label>Treble</label>
+        <input type="range" id="treble" min="-30" max="30" value="0" onchange="setEQ()">
+      </div>
+    </div>
+  </div>
+<script src="script.js"></script>
+</html>
