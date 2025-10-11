@@ -72,8 +72,8 @@
     .track-art {
       height: 250px;
       width: 250px;
-      /* background-image: url("ms.jpg"); */
-      background-image: url("music.jpeg");
+      background-image: url("ms.jpg");
+      /* background-image: url("music.jpeg"); */
       background-size: cover;
       background-position: center;
       border-radius: 50%;
